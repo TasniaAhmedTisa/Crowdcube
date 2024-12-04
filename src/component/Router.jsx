@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBrowserRouter } from 'react-router';
+import { createBrowserRouter } from 'react-router-dom';
 import MainLayout from './MainLayout';
 import Home from './Home';
 import Campaign from './Campaign';

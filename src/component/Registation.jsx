@@ -1,12 +1,12 @@
 //import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { Link, useNavigate   } from 'react-router-dom';
-//import { auth } from '../firebase/firebase.config';
 //import { toast, ToastContainer } from 'react-toastify';
 //import 'react-toastify/dist/ReactToastify.css';
-//import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa6";
+import auth from '../firebase/firebase.config';
 
 
 
@@ -16,7 +16,7 @@ const Registation = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate();
-  //const provider = new GoogleAuthProvider()
+  const provider = new GoogleAuthProvider()
 
   const handleGoogleSignIn = () =>{
     signInWithPopup(auth, provider)

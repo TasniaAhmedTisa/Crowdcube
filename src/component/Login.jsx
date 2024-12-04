@@ -3,14 +3,14 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 import React, {useState} from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-//import { auth } from '../firebase/firebase.config';
+import auth from '../firebase/firebase.config';
 //import {toast, ToastContainer } from 'react-toastify';
 
 const Login = () => {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState('');
 
-  //const provider = new GoogleAuthProvider()
+  const provider = new GoogleAuthProvider()
 
   const handleGoogleSignIn = () =>{
     signInWithPopup(auth, provider)
