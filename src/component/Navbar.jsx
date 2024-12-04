@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
         <div className="flex justify-between py-6 items-center w-11/12 mx-auto">
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-cyan-700">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden gap-3">

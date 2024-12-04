@@ -1,13 +1,12 @@
-//import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { Link, useNavigate   } from 'react-router-dom';
-//import { toast, ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 //import 'react-toastify/dist/ReactToastify.css';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa6";
 import auth from '../firebase/firebase.config';
-
 
 
 
@@ -78,6 +77,7 @@ const Registation = () => {
 
     return (
         <div className='w-3/6 mx-auto my-10'>
+          <ToastContainer></ToastContainer>
 
         <div className="hero text-black min-h-10">
 <div className="hero-content flex-col">

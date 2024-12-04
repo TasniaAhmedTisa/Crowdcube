@@ -4,7 +4,8 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React, {useState} from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import auth from '../firebase/firebase.config';
-//import {toast, ToastContainer } from 'react-toastify';
+//import { ToastContainer } from 'react-toastify';
+import {toast, ToastContainer } from 'react-toastify';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -46,6 +47,7 @@ const Login = () => {
   }
     return (
         <div className='w-3/6 mx-auto my-10'>
+          <ToastContainer></ToastContainer>
             <div className="hero text-black min-h-10">
   <div className="hero-content flex-col">
     <div className="text-center lg:text-left ">
