@@ -9,9 +9,13 @@ import {toast, ToastContainer } from 'react-toastify';
 
 const Login = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+
   const [errorMessage, setErrorMessage] = useState('');
 
   const provider = new GoogleAuthProvider()
+
+  
 
   const handleGoogleSignIn = () =>{
     signInWithPopup(auth, provider)

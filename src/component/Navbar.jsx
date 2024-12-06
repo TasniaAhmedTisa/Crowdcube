@@ -1,18 +1,45 @@
 import { FaUserAlt } from "react-icons/fa";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { GiClothes } from "react-icons/gi";
 import { useState, useEffect } from "react";
-//import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { signOut } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
+import auth from "../firebase/firebase.config";
 
 
 
 
 const Navbar = () => {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
   //const auth = getAuth();
+
+  useEffect(() =>{
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+
+  })
+  return () => unsubscribe();
+  }, []);
   
 
- 
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        toast.success('Logged out successfully!', {
+          position: 'top-center',
+          autoClose: 2000,
+        });
+        setUser(null); // Clear user state
+        navigate('/login'); // Redirect to login page
+      })
+      .catch((error) => {
+        toast.error(`Error: ${error.message}`, {
+          position: 'top-center',
+        });
+      });
+  };
 
   return (
         <div className="flex justify-between py-6 items-center w-11/12 mx-auto">
@@ -59,11 +86,24 @@ const Navbar = () => {
   <div className="navbar-end gap-1">
           {user ? (
             <div className="flex items-center gap-2">
-              <div className="btn btn-circle">     
-                         <img src={user.photoURL} alt="Photo" className="w-10 h-10 rounded-full" />
+              <div className="relative group">
+                <img
+                  src={user.photoURL}
+                  alt="User"
+                  className="w-10 h-10 rounded-full border border-gray-300"
+                  title={user.displayName} // Show name on hover
+                />
+                <div className="absolute hidden group-hover:block bg-gray-800 text-white text-sm p-2 rounded shadow-lg top-12">
+                  {user.displayName}
+                </div>
               </div>
-              <span>{user.displayName}</span>
-            </div>
+              <button
+                onClick={handleLogout}
+                className="btn btn-primary bg-red-600 text-white px-4"
+              >
+                Log Out
+              </button>
+              </div>
           ) : (
             <div className="flex gap-3">
                 <NavLink to="/login" className="btn bg-gray-800 text-white">
