@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import auth from '../firebase/firebase.config';
+import { useNavigate } from 'react-router-dom';
 
 const NewCamp = () => {
   // You can replace these with actual user data from your app context or backend
   const userEmail = "user@example.com";
   const userName = "Tasnia Ahmed";
+  const navigate = useNavigate()
+
+    useEffect(() => {
+        if (!auth.currentUser) {
+          navigate("/login"); 
+        }
+     })
 
   const [formData, setFormData] = useState({
     image: '',

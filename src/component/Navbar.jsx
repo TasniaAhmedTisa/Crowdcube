@@ -2,9 +2,8 @@ import { FaUserAlt } from "react-icons/fa";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { GiClothes } from "react-icons/gi";
 import { useState, useEffect } from "react";
-import { signOut } from "firebase/auth";
+import { getAuth, signOut } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
-import auth from "../firebase/firebase.config";
 
 
 
@@ -13,15 +12,18 @@ const Navbar = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  //const auth = getAuth();
+  const auth = getAuth();
 
   useEffect(() =>{
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-
+      if (currentUser) {
+        setUser(currentUser); 
+      } else {
+        setUser(null); 
+      }
   })
   return () => unsubscribe();
-  }, []);
+  }, [auth]);
   
 
   const handleLogout = () => {
