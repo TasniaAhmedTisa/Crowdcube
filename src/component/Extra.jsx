@@ -7,10 +7,10 @@ const Extra = () => {
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-8">Success Stories</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="card bg-gradient-to-b from-cyan-800 text-black shadow-lg rounded-lg">
+            <div className="card bg-gradient-to-b from-cyan-600 text-black shadow-lg rounded-lg">
               <figure>
                 <img
-                  src="success1.jpg"
+                  src="https://i.ibb.co.com/GdDnxCF/slider4.jpg"
                   alt="Success Story 1"
                   className="rounded-t-lg"
                 />
@@ -22,10 +22,10 @@ const Extra = () => {
                 <p>Raised $50,000 to launch a game-changing mobile app.</p>
               </div>
             </div>
-            <div className="card bg-gradient-to-b from-cyan-800 text-black shadow-lg rounded-lg">
-              <figure>
+            <div className="card bg-gradient-to-b from-cyan-600 text-black shadow-lg rounded-lg">
+              <figure className="h-[240px]">
                 <img
-                  src="success2.jpg"
+                  src="https://i.ibb.co.com/fGZR6Ht/garden.jpg"
                   alt="Success Story 2"
                   className="rounded-t-lg"
                 />
@@ -37,10 +37,10 @@ const Extra = () => {
                 <p>Successfully raised $10,000 to build a community garden.</p>
               </div>
             </div>
-            <div className="card bg-gradient-to-b from-cyan-800 text-black shadow-lg rounded-lg">
-              <figure>
+            <div className="card bg-gradient-to-b from-cyan-600 text-black shadow-lg rounded-lg">
+              <figure className="h-[240px]">
                 <img
-                  src="success3.jpg"
+                  src="https://i.ibb.co.com/T00gWT5/fashion.png"
                   alt="Success Story 3"
                   className="rounded-t-lg"
                 />

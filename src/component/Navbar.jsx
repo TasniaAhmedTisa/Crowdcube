@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 const Navbar = () => {
   const [user, setUser] = useState(null);
   //const auth = getAuth();
+  
 
  
 
@@ -42,12 +43,13 @@ const Navbar = () => {
       <li><NavLink to={"/my-donations"}>Donation</NavLink></li>
       </ul>
     </div>
+    <input type="checkbox" value="synthwave" className="toggle theme-controller" />
     <Link to={"/"} className="btn btn-ghost text-2xl font-bold">CrowdCube</Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
       <li><NavLink to={"/"}>Home</NavLink></li>
-      <li><NavLink to={"/camp"}>Campaigns</NavLink></li>
+      <li><NavLink to={"/camp"}>All Campaigns</NavLink></li>
       <li><NavLink to={"/addcamp"}>Add Campaign</NavLink></li>
       <li><NavLink to={"/my-campaigns"}>My Campaign</NavLink></li>
       <li><NavLink to={"/my-donations"}>Donation</NavLink></li>

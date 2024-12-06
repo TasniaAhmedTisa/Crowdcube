@@ -5,6 +5,7 @@ import Extra from './Extra';
 const Home = () => {
     return (
         <div>
+            
             <Banner></Banner>
             <Extra></Extra>
             
