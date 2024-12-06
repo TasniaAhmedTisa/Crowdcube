@@ -6,56 +6,54 @@ const Extra = () => {
       <section id="success-stories" className="py-12 bg-gray-100 m-12">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-8">Success Stories</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="card bg-gradient-to-b from-cyan-600 text-black shadow-lg rounded-lg">
-              <figure>
-                <img
-                  src="https://i.ibb.co.com/GdDnxCF/slider4.jpg"
-                  alt="Success Story 1"
-                  className="rounded-t-lg"
-                />
-              </figure>
-              <div className="card-body">
-                <h3 className="card-title text-lg font-bold ">
-                  Innovative App Funded
-                </h3>
-                <p>Raised $50,000 to launch a game-changing mobile app.</p>
+          <div className="grid grid-cols-1 gap-8 lg:px-20">
+            <div className="hero-content flex-col lg:flex-row shadow-md rounded-lg  bg-gradient-to-r from-cyan-600">
+              <img
+                src="https://i.ibb.co/GdDnxCF/slider4.jpg"
+                alt="Innovative App"
+                className="rounded-t-lg w-3/5 h-[350px] object-cover"
+              />
+              <div className="hero-content flex-col items-center p-6">
+                <h3 className="text-2xl font-bold mb-4">Innovative App Funded</h3>
+                <p className="text-gray-700 mb-6">
+                  Raised $50,000 to launch a game-changing mobile app.
+                </p>
+                <button className="btn bg-slate-700 text-white">Read More</button>
               </div>
             </div>
-            <div className="card bg-gradient-to-b from-cyan-600 text-black shadow-lg rounded-lg">
-              <figure className="h-[240px]">
-                <img
-                  src="https://i.ibb.co.com/fGZR6Ht/garden.jpg"
-                  alt="Success Story 2"
-                  className="rounded-t-lg"
-                />
-              </figure>
-              <div className="card-body">
-                <h3 className="card-title text-lg font-bold">
-                  Community Garden
-                </h3>
-                <p>Successfully raised $10,000 to build a community garden.</p>
+
+            <div className="hero-content flex-col lg:flex-row-reverse shadow-md rounded-lg  bg-gradient-to-l from-cyan-600">
+              <img
+                src="https://i.ibb.co/fGZR6Ht/garden.jpg"
+                alt="Community Garden"
+                className="rounded-t-lg w-3/5 h-[350px] object-cover mx-auto"
+              />
+              <div className="hero-content flex-col  items-center p-6">
+                <h3 className="text-2xl font-bold mb-4">Community Garden</h3>
+                <p className="text-gray-700 mb-6">
+                  Successfully raised $10,000 to build a community garden.
+                </p>
+                <button className="btn bg-slate-700 text-white">Read More</button>
               </div>
             </div>
-            <div className="card bg-gradient-to-b from-cyan-600 text-black shadow-lg rounded-lg">
-              <figure className="h-[240px]">
-                <img
-                  src="https://i.ibb.co.com/T00gWT5/fashion.png"
-                  alt="Success Story 3"
-                  className="rounded-t-lg"
-                />
-              </figure>
-              <div className="card-body">
-                <h3 className="card-title text-lg font-bold">
-                  Sustainable Fashion Brand
-                </h3>
-                <p>Raised $25,000 to start an eco-friendly fashion line.</p>
+
+            <div className="hero-content flex-col lg:flex-row shadow-md rounded-lg  bg-gradient-to-r from-cyan-600">
+              <img
+                src="https://i.ibb.co/T00gWT5/fashion.png"
+                alt="Sustainable Fashion"
+                className="rounded-t-lg w-3/5 h-[350px] object-cover"
+              />
+              <div className="hero-content flex-col items-center p-6 ">
+                <h3 className="text-2xl font-bold mb-4">Sustainable Fashion Brand</h3>
+                <p className="text-gray-700 mb-6">
+                  Raised $25,000 to start an eco-friendly fashion line.
+                </p>
+                <button className="btn bg-slate-700 text-white">Read More</button>
               </div>
             </div>
           </div>
         </div>
       </section>
-
       {/* How It Works Section */}
       <section id="how-it-works" className="py-12 lg:px-40 bg-gradient-to-t from-cyan-600 text-black flex items-center justify-center m-12">
         <div className="container mx-auto px-6">
