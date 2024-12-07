@@ -49,29 +49,25 @@ const Donation = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {donations.map((donation) => (
-            <div
-              key={donation._id}
-              className="bg-white shadow-lg rounded-lg overflow-hidden"
-            >
+            <div key={donation._id} className="bg-white shadow-lg rounded-lg overflow-hidden">
+              {/* Ensure campaignDetails exists before accessing properties */}
               <img
-                src={donation.image || 'https://via.placeholder.com/150'}
-                alt={donation.title || 'Campaign Image'}
+                src={donation.campaignDetails ? donation.campaignDetails.image : 'https://via.placeholder.com/150'}
+                alt={donation.campaignDetails ? donation.campaignDetails.title : 'Campaign Image'}
                 className="w-full h-48 object-cover"
               />
               <div className="p-4">
-                <h2 className="text-xl font-bold">{donation.title || 'No Title'}</h2>
-                <p className="text-sm text-gray-600">{donation.type || 'No Type'}</p>
-                <p className="text-sm text-gray-800">
-                  {donation.description || 'No Description'}
-                </p>
+                <h2 className="text-xl font-bold">{donation.campaignDetails ? donation.campaignDetails.title : ' Title'}</h2>
+                <p className="text-sm text-gray-600">{donation.campaignDetails ? donation.campaignDetails.type : ' Type'}</p>
+                <p className="text-sm text-gray-800">{donation.campaignDetails ? donation.campaignDetails.description : ' Description'}</p>
                 <p className="text-sm text-gray-600">
                   Deadline:{' '}
-                  {donation.deadline
-                    ? new Date(donation.deadline).toLocaleDateString()
-                    : 'No Deadline'}
+                  {donation.campaignDetails && donation.campaignDetails.deadline
+                    ? new Date(donation.campaignDetails.deadline).toLocaleDateString()
+                    : ' Deadline'}
                 </p>
                 <p className="text-sm text-gray-600">
-                  Minimum Donation: ${donation.minDonation || '0'}
+                  Minimum Donation: ${donation.campaignDetails ? donation.campaignDetails.minDonation : '0'}
                 </p>
               </div>
             </div>
