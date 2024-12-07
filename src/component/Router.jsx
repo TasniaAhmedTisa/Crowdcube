@@ -10,6 +10,7 @@ import Login from './Login';
 import Registation from './Registation';
 import Error from './Error';
 import Details from './Details';
+import Update from './Update';
 
 const Router = createBrowserRouter([
     {
@@ -48,6 +49,10 @@ const Router = createBrowserRouter([
             {
                 path:"/campaign-details/:id",
                 element:<Details></Details>
+            },
+            {
+                path:"/update-campaign/:id",
+                element:<Update></Update>
             }
 
         ]
