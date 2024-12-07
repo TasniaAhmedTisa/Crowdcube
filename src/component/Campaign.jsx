@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom';
+import { NavLink, useLoaderData } from 'react-router-dom';
 import { useState } from 'react';
 
 const Campaign = () => {
@@ -12,8 +12,8 @@ const Campaign = () => {
 
     return (
         <div>
-            <div className="mb-4 flex justify-center
-            ">
+            <h1 className='font-bold text-center text-3xl py-4'>All Campaign</h1>
+            <div className="mb-4 flex justify-end">
                 <button className="btn"  onClick={sortCampaigns}>
                     Sort by Minimum Donation
                 </button>
@@ -36,7 +36,7 @@ const Campaign = () => {
                             <td>{campaign.title}</td>
                             <td>{campaign.minDonation}</td>
                             <td>
-                                <button className="btn">See More</button>
+                                <button className="btn"> <NavLink to={`/campaign-details/${campaign._id}`}>See More</NavLink></button>
                             </td>
                         </tr>
                     ))}
