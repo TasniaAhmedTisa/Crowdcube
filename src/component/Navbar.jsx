@@ -66,7 +66,7 @@ const Navbar = () => {
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
         <li><NavLink to={"/"}>Home</NavLink></li>
-      <li><NavLink to={"/camp"}>Campaigns</NavLink></li>
+      <li><NavLink to={"/camp"}>All Campaigns</NavLink></li>
       <li><NavLink to={"/addcamp"}>Add Campaign</NavLink></li>
       <li><NavLink to={"/my-campaigns"}>My Campaign</NavLink></li>
       <li><NavLink to={"/my-donations"}>My Donation</NavLink></li>

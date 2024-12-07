@@ -14,7 +14,8 @@ const NewCamp = () => {
     const currentUser = auth.currentUser;
 
     if (!currentUser) {
-      navigate("/login"); // Redirect if not logged in
+      navigate("/login"); 
+
       return;
     }
 
