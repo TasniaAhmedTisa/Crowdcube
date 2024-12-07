@@ -69,7 +69,7 @@ const Navbar = () => {
       <li><NavLink to={"/camp"}>Campaigns</NavLink></li>
       <li><NavLink to={"/addcamp"}>Add Campaign</NavLink></li>
       <li><NavLink to={"/my-campaigns"}>My Campaign</NavLink></li>
-      <li><NavLink to={"/my-donations"}>Donation</NavLink></li>
+      <li><NavLink to={"/my-donations"}>My Donation</NavLink></li>
       </ul>
     </div>
     <input type="checkbox" value="synthwave" className="toggle theme-controller" />
@@ -81,7 +81,7 @@ const Navbar = () => {
       <li><NavLink to={"/camp"}>All Campaigns</NavLink></li>
       <li><NavLink to={"/addcamp"}>Add Campaign</NavLink></li>
       <li><NavLink to={"/my-campaigns"}>My Campaign</NavLink></li>
-      <li><NavLink to={"/my-donations"}>Donation</NavLink></li>
+      <li><NavLink to={"/my-donations"}>My Donation</NavLink></li>
 
     </ul>
   </div>

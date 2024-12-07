@@ -3,16 +3,33 @@ import auth from '../firebase/firebase.config';
 import { useNavigate } from 'react-router-dom';
 
 const NewCamp = () => {
-  // You can replace these with actual user data from your app context or backend
-  const userEmail = "user@example.com";
-  const userName = "Tasnia Ahmed";
+  
   const navigate = useNavigate()
+  const [userDetails, setUserDetails] = useState({
+    email: '',
+    name: '',
+  });
 
-    useEffect(() => {
-        if (!auth.currentUser) {
-          navigate("/login"); 
-        }
-     })
+  useEffect(() => {
+    const currentUser = auth.currentUser;
+
+    if (!currentUser) {
+      navigate("/login"); // Redirect if not logged in
+      return;
+    }
+
+    // Set the user's email and name from Firebase Auth
+    setUserDetails({
+      email: currentUser.email,
+      name: currentUser.displayName || 'Anonymous User', // Fallback for name
+    });
+
+    // Automatically populate userEmail in the form data
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      userEmail: currentUser.email,
+    }));
+  }, [navigate]);
 
   const [formData, setFormData] = useState({
     image: '',
@@ -21,6 +38,7 @@ const NewCamp = () => {
     description: '',
     minDonation: '',
     deadline: '',
+    userEmail:'',
   });
 
   const handleChange = (e) => {
@@ -48,6 +66,15 @@ const NewCamp = () => {
       console.log(data);
       if(data.insertedId){
         alert("Campaign added successfully")
+        setFormData({
+          image: '',
+          title: '',
+          type: '',
+          description: '',
+          minDonation: '',
+          deadline: '',
+          userEmail: userDetails.email,
+        });
         form.reset()
       }
     })
@@ -57,7 +84,6 @@ const NewCamp = () => {
     <div className="max-w-lg mx-auto mt-10 bg-white p-8 shadow-md rounded">
       <h1 className="text-2xl font-bold mb-4">Add New Campaign</h1>
       <form onSubmit={handleSubmit}>
-        {/* Image URL */}
         <div className="mb-4">
           <label className="block text-gray-700">Image/Thumbnail URL</label>
           <input
@@ -70,7 +96,6 @@ const NewCamp = () => {
           />
         </div>
 
-        {/* Campaign Title */}
         <div className="mb-4">
           <label className="block text-gray-700">Campaign Title</label>
           <input
@@ -83,7 +108,6 @@ const NewCamp = () => {
           />
         </div>
 
-        {/* Campaign Type */}
         <div className="mb-4">
           <label className="block text-gray-700">Campaign Type</label>
           <select
@@ -101,7 +125,6 @@ const NewCamp = () => {
           </select>
         </div>
 
-        {/* Description */}
         <div className="mb-4">
           <label className="block text-gray-700">Description</label>
           <textarea
@@ -114,7 +137,6 @@ const NewCamp = () => {
           />
         </div>
 
-        {/* Minimum Donation Amount */}
         <div className="mb-4">
           <label className="block text-gray-700">Minimum Donation Amount</label>
           <input
@@ -127,7 +149,6 @@ const NewCamp = () => {
           />
         </div>
 
-        {/* Deadline */}
         <div className="mb-4">
           <label className="block text-gray-700">Deadline</label>
           <input
@@ -145,8 +166,8 @@ const NewCamp = () => {
           <label className="block text-gray-700">User Email</label>
           <input
             type="email"
-            name="email"
-            value={userEmail}
+            name="userEmail"
+            value={userDetails.email}
             readOnly
             className="w-full p-2 border rounded bg-gray-100"
           />
@@ -158,7 +179,7 @@ const NewCamp = () => {
           <input
             type="text"
             name="username"
-            value={userName}
+            value={userDetails.name}
             readOnly
             className="w-full p-2 border rounded bg-gray-100"
           />
