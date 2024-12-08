@@ -76,7 +76,7 @@ const NewCamp = () => {
           deadline: '',
           userEmail: userDetails.email,
         });
-        form.reset()
+        e.target.reset()
       }
     })
   };

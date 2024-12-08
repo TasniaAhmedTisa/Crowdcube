@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import auth from '../firebase/firebase.config';
 import { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 
 const MyCamp = () => {
   const navigate = useNavigate();
@@ -32,33 +33,46 @@ const MyCamp = () => {
         setLoading(false); // Stop loading if there is an error
       });
   }, [navigate]);
-
-  if (loading) {
-    return <div className="text-center py-10">Loading your campaigns...</div>;
-  }
-
-  if (error) {
-    return <div className="text-center py-10 text-red-500">{error}</div>; // Display error message if there's any
-  }
-
+  
   const handleDelete = (id) => {
-    const confirmDelete = window.confirm('Are you sure you want to delete this campaign?');
-    if (confirmDelete) {
+
+  Swal.fire({
+    title: 'Are you sure?',
+    text: 'You won\'t be able to revert this!',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, delete it!',
+    cancelButtonText: 'No, cancel!',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Send DELETE request to the backend
       fetch(`http://localhost:5000/delete-campaign/${id}`, {
         method: 'DELETE',
       })
         .then((res) => res.json())
         .then((data) => {
-          if (data.deletedCount > 0) {
-            alert('Campaign deleted successfully!');
-            setCampaigns(campaigns.filter((campaign) => campaign._id !== id)); // Update UI by removing deleted campaign
+          if (data.message === 'Campaign deleted successfully') {
+            // Remove the deleted campaign from the state
+            setCampaigns(campaigns.filter((campaign) => campaign._id !== id));
+            Swal.fire('Deleted!', 'Your campaign has been deleted.', 'success');
           } else {
-            alert('Failed to delete campaign');
+            Swal.fire('Error!', 'Failed to delete campaign.', 'error');
           }
         })
-        .catch((err) => alert('Error deleting campaign: ' + err));
+        .catch((err) => Swal.fire('Error!', 'Server error: ' + err.message, 'error'));
     }
-  };
+  });
+};
+
+if (loading) {
+  return <div className="text-center py-10">Loading campaigns...</div>;
+}
+
+if (error) {
+  return <div className="text-center py-10 text-red-500">{error}</div>;
+}
+  
+
 
   const handleUpdate = (id) => {
     navigate(`/update-campaign/${id}`); // Navigate to the update campaign page

@@ -41,7 +41,7 @@ const Donation = () => {
   }
 
   return (
-    <div className="bg-gradient-to-t from-cyan-600 w-11/12 mx-auto min-h-screen mb-10">
+    <div className="bg-gradient-to-t from-cyan-600 w-11/12 mx-auto min-h-screen mb-10 p-5">
       <h1 className="text-3xl font-bold text-center py-10">My Donations</h1>
 
       {donations.length === 0 ? (
