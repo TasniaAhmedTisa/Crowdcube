@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import auth from '../firebase/firebase.config';
 import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
+import { ClipLoader } from 'react-spinners';
 
 const MyCamp = () => {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ const MyCamp = () => {
         setLoading(false); // Stop loading if there is an error
       });
   }, [navigate]);
-  
+
   const handleDelete = (id) => {
 
   Swal.fire({
@@ -65,7 +66,9 @@ const MyCamp = () => {
 };
 
 if (loading) {
-  return <div className="text-center py-10">Loading campaigns...</div>;
+  return <div className="spinner-container flex justify-center">
+          <ClipLoader color="#3498db" loading={loading} size={20} />
+        </div>;
 }
 
 if (error) {
