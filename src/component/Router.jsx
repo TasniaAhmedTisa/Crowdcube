@@ -24,7 +24,7 @@ const Router = createBrowserRouter([
             {
                 path:"camp",
                 element:<Campaign></Campaign>,
-                loader: () => fetch('http://localhost:5000/addcampaign')
+                loader: () => fetch('https://my-project-10-server.vercel.app/addcampaign')
             },
             {
                 path:"addcamp",
@@ -32,7 +32,8 @@ const Router = createBrowserRouter([
             },
             {
                 path:"/my-campaigns",
-                element:<MyCamp></MyCamp>
+                element:<MyCamp></MyCamp>,
+                loader: () => fetch('https://my-project-10-server.vercel.app/my-campaigns')
             },
             {
                 path:"/my-donations",
