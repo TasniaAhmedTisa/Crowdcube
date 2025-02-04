@@ -37,3 +37,9 @@ https://github.com/programming-hero-web-course2/b10-a10-client-side-TasniaAhmedT
 
 Github-server-link:
  https://github.com/programming-hero-web-course2/b10-a10-server-side-TasniaAhmedTisa.git
+
+
+ Client-Live-Link: https://my-project-10-60b26.web.app
+ 
+
+Server-live-link: https://my-project-10-server.vercel.app/
